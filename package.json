@@ -4,7 +4,7 @@
   "description": "freecodecamp backend course",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test.js"
   },
   "author": "hasanuzzaman",
   "license": "ISC",
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/engr-hasanuzzaman/freecodecamp-backend/issues"
   },
-  "homepage": "https://github.com/engr-hasanuzzaman/freecodecamp-backend#readme"
+  "homepage": "https://github.com/engr-hasanuzzaman/freecodecamp-backend#readme",
+  "dependencies": {
+    "@linclark/pkg": "^1.0.2"
+  }
 }
