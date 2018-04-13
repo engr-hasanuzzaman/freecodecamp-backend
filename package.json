@@ -1,0 +1,19 @@
+{
+  "name": "@engr.hasanuzzaman/codecamp-node",
+  "version": "1.0.0",
+  "description": "freecodecamp backend course",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "hasanuzzaman",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/engr-hasanuzzaman/freecodecamp-backend.git"
+  },
+  "bugs": {
+    "url": "https://github.com/engr-hasanuzzaman/freecodecamp-backend/issues"
+  },
+  "homepage": "https://github.com/engr-hasanuzzaman/freecodecamp-backend#readme"
+}
