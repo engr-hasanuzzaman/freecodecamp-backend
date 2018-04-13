@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/engr-hasanuzzaman/freecodecamp-backend#readme",
   "dependencies": {
-    "@linclark/pkg": "^1.0.2"
+    "@linclark/pkg": "^1.0.3"
   }
 }
