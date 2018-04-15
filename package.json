@@ -19,6 +19,7 @@
   "dependencies": {
     "@linclark/pkg": "^1.0.3",
     "concat-stream": "^1.6.2",
+    "express": "^4.16.3",
     "strftime": "^0.10.0",
     "through2-map": "^3.0.0"
   }
