@@ -18,11 +18,16 @@
   "homepage": "https://github.com/engr-hasanuzzaman/freecodecamp-backend#readme",
   "dependencies": {
     "@linclark/pkg": "^1.0.3",
+    "body-parser": "^1.18.2",
     "concat-stream": "^1.6.2",
     "express": "^4.16.3",
     "morgan": "^1.9.0",
     "pug": "^2.0.3",
     "strftime": "^0.10.0",
     "through2-map": "^3.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-plugin-react": "^7.7.0"
   }
 }

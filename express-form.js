@@ -1,0 +1,26 @@
+var express = require('express');
+var bodyparser = require('body-parser');
+var http = require('http');
+var path = require('path');
+var pug = require('pug');
+var morgan = require('morgan');
+
+const app = express(); // response handler
+// view setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'pug');
+
+app.use(morgan());
+app.use(bodyparser.urlencoded({extened: false}));
+app.get('/form', (req, res) =>{
+    res.render('form', {});
+});
+
+// handle form submission
+app.post('*', (req, res) => {
+  res.end(req.body.str.split('').reverse().join(''));
+});
+
+let port = (process.argv[2] || 3000);
+http.createServer(app).listen(port);
+console.log('server start on port: ', port);
