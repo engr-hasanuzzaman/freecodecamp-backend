@@ -29,6 +29,15 @@ app.post('*', (req, res) => {
   res.end(req.body.str.split('').reverse().join(''));
 });
 
+app.put('/message/:id', (req, res) => {
+  let id = req.params.id;
+  res.end( require('crypto')
+      .createHash('sha1')
+      .update(new Date().toDateString() + id)
+      .digest('hex')
+    );
+});
+
 let port = (process.argv[2] || 3000);
 http.createServer(app).listen(port);
 console.log('server start on port: ', port);
