@@ -20,9 +20,12 @@ mongo.connect(dbPath, function(err, client) {
                 client.close();
             });
         }else{
-            findByName(userCollection, 30, () =>{
-                client.close();
+            updateUser(userCollection, () => {
+                findByName(userCollection, 18, () =>{
+                    client.close();
+                });
             });
+            
         }
     });
    
@@ -60,3 +63,10 @@ function findByName(collection, age, callback){
         });
 }
 
+function updateUser(collection, callback){
+    collection.updateOne({name: 'sumon'}, { $set: { new_prop: 'this is new' } }, (err, result) => {
+        if(err) return console.log('error during update ', err);
+        console.log('you have updated ', result.result);
+        callback(result); 
+    });
+}
