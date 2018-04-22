@@ -23,6 +23,7 @@
     "express": "^4.16.3",
     "faker": "^4.1.0",
     "koa": "^2.5.0",
+    "koa-body": "^2.5.0",
     "koa-logger": "^3.2.0",
     "koa-router": "^7.4.0",
     "koa-static": "^4.0.2",
