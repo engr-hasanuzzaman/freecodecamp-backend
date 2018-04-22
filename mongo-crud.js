@@ -11,7 +11,7 @@ mongo.connect(dbPath, function(err, client) {
     let userCollection = db.collection(cName);
 
     // inset data if no data
-    
+
     userCollection.count(function (err, n){
         if(err) console.log('---error during collection coult');
         console.log('---collection size is', n);
@@ -21,15 +21,20 @@ mongo.connect(dbPath, function(err, client) {
             });
         }else{
             updateUser(userCollection, () => {
+                console.log('----- after updating user ---');
                 findByName(userCollection, 18, () =>{
-                    client.close();
+                    removeUsers(userCollection, () => {
+                      console.log('---- after remving user ---');
+                      findByName(userCollection, 1, () =>{
+                        client.close();
+                      });
+                    });
                 });
             });
-            
         }
     });
-   
-    
+
+
 });
 
 function addMultipleData(collection, callback){
@@ -67,6 +72,15 @@ function updateUser(collection, callback){
     collection.updateOne({name: 'sumon'}, { $set: { new_prop: 'this is new' } }, (err, result) => {
         if(err) return console.log('error during update ', err);
         console.log('you have updated ', result.result);
-        callback(result); 
+        callback(result);
     });
+}
+
+function removeUsers(collection, callback){
+  collection.deleteMany({ age: { $gt: 20 }}, (err, data) => {
+    if(err) return console.log('--error deleting data');
+
+    console.log('---deleting data success', data.result);
+    callback(data);
+  })
 }

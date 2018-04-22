@@ -23,6 +23,11 @@
     "express": "^4.16.3",
     "faker": "^4.1.0",
     "koa": "^2.5.0",
+<<<<<<< HEAD
+=======
+    "koa-logger": "^3.2.0",
+    "koa-static": "^4.0.2",
+>>>>>>> eace9fd3e1849a2fd90ddc3e08e5b5c9c4094cd8
     "mongodb": "^3.0.6",
     "morgan": "^1.9.0",
     "pug": "^2.0.3",
