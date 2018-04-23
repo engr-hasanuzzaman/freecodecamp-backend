@@ -7,28 +7,39 @@ const koa = require('koa');
 const app = module.exports = new koa();
 const APP_PORT = process.argv[2] || 3000;
 
-const posts = [{ title: 'First post', content: 'First post content'}];
+const todos = [
+  { title: 'First todo', content: 'First todo content', status: false },
+  { title: '2nd todo', content: '2nd todo content', status: true }
+];
 
 app.use(logger());
 app.use(koaBody());
 app.use(renderer);
 
 // declare router
-router.get('/posts', postIndex)
-  .get('/post/:id', postShow);
+router.get('/todos', todoIndex)
+  .get('/todos/:id', todoShow)
+  .get('/todos/new', todoNew)
       
 app.use(router.routes());
 
 /**
  * 
  */
-async function postIndex(ctx){
-  await ctx.render('todos/index', { posts: posts });  
+async function todoIndex(ctx){
+  await ctx.render('todos/index', { todos: todos });
 }
 
-async function postShow(ctx){
+async function todoShow(ctx){
   let id = ctx.params.id;
-  ctx.body = posts[id];
+  let todo = todos[id];
+  if(!todo) ctx.throw(404, 'content not found');
+  
+  await ctx.render('todos/show', { todo: todo });
+}
+
+async function todoNew(ctx){
+  await ctx.render('todos/new');
 }
 
 if(!module.parent){

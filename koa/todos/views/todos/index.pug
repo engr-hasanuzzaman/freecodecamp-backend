@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-html(lang="en")
-  head
-    meta(charset="UTF-8")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    meta(http-equiv="X-UA-Compatible", content="ie=edge")
-    title Document
-  body
-    ul
-      each post in posts
-        li= post.title
-      else
-        li There are no title    
+extends layout.pug
+
+block content
+  div
+    each todo, id in todos
+      include _todo.pug
