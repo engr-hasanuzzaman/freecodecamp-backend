@@ -1,4 +1,6 @@
-div(class = 'js_todo', 'data-id' = id)
+div(class = 'todo js_todo', 'data-id' = id)
   p.title= todo.title
   p.content= todo.content
+  p.content= todo.created_at
+  p.content= todo.completed_at
   input(type="checkbox", name="status", checked= todo.status)
