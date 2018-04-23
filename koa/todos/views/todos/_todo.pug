@@ -1,6 +1,9 @@
-div(class = 'todo js_todo', 'data-id' = id)
-  p.title= todo.title
-  p.content= todo.content
-  p.content= todo.created_at
-  p.content= todo.completed_at
-  input(type="checkbox", name="status", checked= todo.status)
+tr
+  td= todo.title
+  td
+    input(type="checkbox", name="status", checked= todo.status, readonly = 'readonly')
+  td
+    link(rel="stylesheet", href="/todos/#{id}")
+    link(rel="stylesheet", href="/todos/#{id}")
+    link(rel="stylesheet", href="/todos/#{id}")
+          
