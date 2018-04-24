@@ -52,6 +52,7 @@ async function todoCreate(ctx){
   let todo = ctx.request.body;
   todo.status = false;
   todo.created_at = new Date();
+  // todo.target_completion_date = 
   todo.completed_at = null;
   todos.push(todo);
   ctx.redirect('/todos');

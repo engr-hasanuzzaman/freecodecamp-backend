@@ -31,3 +31,8 @@
 .btn-action{
   margin-right: 5px;
 }
+
+.form-container{
+  max-width: 400px;
+  margin: 10% auto auto;
+}
