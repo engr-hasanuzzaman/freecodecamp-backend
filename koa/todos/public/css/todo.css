@@ -28,3 +28,6 @@
 .todo_table tr:nth-child(even) {
   background-color: #dddddd;
 }
+.btn-action{
+  margin-right: 5px;
+}
