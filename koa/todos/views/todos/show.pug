@@ -1,4 +1,9 @@
 extends layout.pug
 
 block content
-  include _todo.pug
+  div(class = '', 'data-id' = id)
+    p.title= todo.title
+    p.content= todo.content
+    p.content= todo.created_at
+    p.content= todo.completed_at
+    input(type="checkbox", name="status", checked= todo.status)
