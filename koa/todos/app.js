@@ -9,7 +9,7 @@ const koa = require('koa');
 const app = module.exports = new koa();
 const APP_PORT = process.argv[2] || 3000;
 
-const todos = [
+var todos = [
   { title: 'First todo', content: 'First todo content', status: false },
   { title: '2nd todo', content: '2nd todo content', status: true }
 ];
@@ -25,6 +25,9 @@ router.get('/todos', todoIndex)
   .get('/todos/new', todoNew)
   .get('/todos/:id', todoShow)
   .post('/todos', todoCreate)
+  .get('/todos/delete/:id', todoDelete)
+  .get('/todos/:id', todoEdit)
+  .get('/todos/markread/:id', todoMarkread)
       
 app.use(router.routes());
 
@@ -44,7 +47,7 @@ async function todoShow(ctx){
 }
 
 async function todoNew(ctx){
-  await ctx.render('todos/new', { title: 'new todo' });
+  await ctx.render('todos/new', { todo: {}, title: 'new todo' });
 }
 
 async function todoCreate(ctx){
@@ -56,6 +59,23 @@ async function todoCreate(ctx){
   todo.completed_at = null;
   todos.push(todo);
   ctx.redirect('/todos');
+}
+
+async function todoEdit(ctx){
+  let todo = todos[ctx.params.id];
+  await ctx.render('todos/new', { todo: todo });
+}
+
+async function todoDelete(ctx){
+  let id = ctx.params.id;
+  todos = todos.filter((_e, index) => { return index != id});
+  await ctx.redirect('/todos');
+}
+
+async function todoMarkread(ctx){
+  let todo = todos[ctx.params.id];
+  todo['status'] = true;
+  await ctx.redirect('/todos');
 }
 
 if(!module.parent){
